@@ -13,7 +13,7 @@ const isWin = (result: string) => /\bwinner\b/i.test(result);
  * flourish adds no information, so touch users miss nothing.
  */
 export default function AwardRow({ award }: { award: Award }) {
-  const win = isWin(award.result);
+  const win = award.highlight || isWin(award.result);
   const flip = "transition-colors duration-500 ease-out-quart";
 
   return (

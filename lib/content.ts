@@ -29,7 +29,7 @@ export const profile = {
   },
   /** One-paragraph summary, straight from the résumé. */
   summary:
-    "Final-year CSE (Cyber Security) student who shipped Node.js features, MongoDB query optimizations and JWT/RBAC authentication to production during a six-month DevOps & SDE internship, and deployed a bare-metal Kubernetes (k3s) platform that sustained 2,500+ concurrent users. Strong in data structures, algorithms, OOP and DBMS.",
+    "Final-year CSE (Cyber Security) student who shipped Node.js features, MongoDB query optimizations and JWT/RBAC authentication to production during a six-month SDE internship, and deployed a bare-metal Kubernetes (k3s) platform that sustained 2,500+ concurrent users. Strong in data structures, algorithms, OOP and DBMS.",
 } as const;
 
 export type SocialLink = { label: string; handle: string; href: string };
@@ -99,7 +99,7 @@ export const hero = {
   statement: profile.tagline,
   facts: [
     { k: "Currently", v: "Final-year B.E. CSE (Cyber Security)" },
-    { k: "Previously", v: "DevOps & SDE Intern, TeamMistake Technologies" },
+    { k: "Previously", v: "SDE Intern, TeamMistake Technologies" },
     { k: "Focus", v: "Backend · Full-stack · Systems" },
   ],
   primaryCta: { label: "See the work", href: "#work" },
@@ -590,15 +590,15 @@ export type Role = {
 export const experience: Role[] = [
   {
     company: "TeamMistake Technologies",
-    title: "DevOps & SDE Intern",
+    title: "SDE Intern",
     period: "Oct 2025 — Mar 2026",
     start: "2025-10",
     end: "2026-03",
     kind: "Internship · 6 months",
     summary:
-      "Worked on production Node.js / Express services end to end — from data modelling and API design to deployment and production debugging.",
+      "Worked on the Admin Dashboard module — building its production Node.js / Express services end to end, from data modelling and API design to deployment and production debugging.",
     points: [
-      "Shipped production Node.js/Express features end to end, from data modelling and API design to deployment.",
+      "Owned backend features for the Admin Dashboard module end to end, from data modelling and API design to deployment.",
       "Designed MongoDB schemas and rewrote queries to remove redundant database calls on high-traffic endpoints.",
       "Built JWT authentication and role-based access control (RBAC) from scratch for user and admin workflows.",
       "Containerized services with Docker, shipped releases through GitHub Actions CI/CD, and managed DNS and SSL/TLS.",
@@ -672,9 +672,16 @@ export const marqueeRows: string[][] = [
 
 /* ── Recognition ─────────────────────────────────────────────────────── */
 
-export type Award = { title: string; result: string; detail: string; year: string };
+export type Award = { title: string; result: string; detail: string; year: string; highlight?: boolean };
 
 export const awards: Award[] = [
+  {
+    title: "Samsung Solve for Tomorrow",
+    result: "Top 5 Finalist · AI Living for India",
+    detail: "National innovation programme",
+    year: "2026",
+    highlight: true,
+  },
   { title: "SRCAS 2.0 Hackathon", result: "Winner", detail: "350+ participants · with Sentinel AI", year: "2025" },
   {
     title: "MobilityX 2.0 Hackathon",
@@ -682,7 +689,6 @@ export const awards: Award[] = [
     detail: "250+ participants · 24-hour build",
     year: "2025",
   },
-  { title: "Samsung Solve for Tomorrow", result: "Top 20 Finalist", detail: "National innovation programme", year: "2026" },
   {
     title: "MAHE Mobility Challenge",
     result: "AI Track Finalist",
