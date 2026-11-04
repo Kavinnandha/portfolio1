@@ -1,0 +1,27 @@
+/*
+ * Outlined ticker words.
+ *
+ * Geist is a variable font that keeps overlapping contours (t, f, 4 … are
+ * two shapes each), so -webkit-text-stroke would trace seams *inside* those
+ * letters. Instead the glyph is filled with the page colour and ringed with
+ * twelve hairline text-shadows. Shadows only paint outside the fill, so the
+ * outline stays clean whatever the glyph construction, in every browser.
+ */
+.outline {
+  --o: max(1px, 0.011em);
+  --c: var(--color-ink, #0f0f0e);
+  color: var(--color-paper, #f4f2ed);
+  text-shadow:
+    var(--o) 0 0 var(--c),
+    calc(var(--o) * 0.866) calc(var(--o) * 0.5) 0 var(--c),
+    calc(var(--o) * 0.5) calc(var(--o) * 0.866) 0 var(--c),
+    0 var(--o) 0 var(--c),
+    calc(var(--o) * -0.5) calc(var(--o) * 0.866) 0 var(--c),
+    calc(var(--o) * -0.866) calc(var(--o) * 0.5) 0 var(--c),
+    calc(var(--o) * -1) 0 0 var(--c),
+    calc(var(--o) * -0.866) calc(var(--o) * -0.5) 0 var(--c),
+    calc(var(--o) * -0.5) calc(var(--o) * -0.866) 0 var(--c),
+    0 calc(var(--o) * -1) 0 var(--c),
+    calc(var(--o) * 0.5) calc(var(--o) * -0.866) 0 var(--c),
+    calc(var(--o) * 0.866) calc(var(--o) * -0.5) 0 var(--c);
+}

@@ -1,0 +1,20 @@
+/* Keyboard focus on ink: a paper ring reads far better than the cobalt one. */
+.root :focus-visible {
+  outline-color: var(--color-paper, #f4f2ed);
+}
+
+/* The closing headline runs larger than the display token — it's the finale.
+   Sized so the longest line ("something that") still fits a 320px phone. */
+.title {
+  font-size: clamp(2.75rem, 10.6vw, 11.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+/* SplitText line masks: room for ascenders, descenders and the italic
+   overhang so rising characters are never shaved. Negative margins keep the
+   layout exactly where it was before the split. */
+.title :global(.ct-line-mask) {
+  padding: 0.1em 0.12em 0.16em;
+  margin: -0.1em -0.12em -0.16em;
+}
