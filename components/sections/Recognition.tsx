@@ -5,6 +5,7 @@ import { awards, sections } from "@/lib/content";
 import SectionHeader, { Emphasis } from "@/components/ui/SectionHeader";
 import { prefersReducedMotion, useGSAP } from "@/lib/gsap";
 import AwardRow from "./recognition/AwardRow";
+import AwardSpotlight from "./recognition/AwardSpotlight";
 import Certifications from "./recognition/Certifications";
 import PublicationFeature from "./recognition/PublicationFeature";
 import SubHeading from "./recognition/SubHeading";
@@ -48,6 +49,7 @@ export default function Recognition() {
             ))}
           </ul>
           <span aria-hidden data-award-end className="block h-px bg-line-strong" />
+          <AwardSpotlight />
         </div>
 
         <PublicationFeature number={`${s.index}.2`} />

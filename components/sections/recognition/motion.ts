@@ -89,6 +89,30 @@ export function animateRecognition(root: HTMLElement): void {
     });
   }
 
+  // Spotlight: photos wipe up out of a clip, then the caption rises.
+  batchReveal(
+    all("[data-spotlight-photo]"),
+    (photo) =>
+      gsap
+        .timeline()
+        .fromTo(
+          photo,
+          { clipPath: "inset(100% 0% 0% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4, ease: EASE.inOut, clearProps: "clipPath" },
+        ),
+    { start: "top 88%", step: 0.15 },
+  );
+  all("[data-spotlight-text] > *").forEach((el, i) => {
+    gsap.from(el, {
+      y: 18,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.08,
+      ease: EASE.out,
+      scrollTrigger: { trigger: el.parentElement, start: "top 92%", once: true },
+    });
+  });
+
   // Certifications: cards lift in, cascading.
   batchReveal(
     all("[data-cert-card]"),

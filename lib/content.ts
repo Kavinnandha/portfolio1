@@ -697,6 +697,18 @@ export const awards: Award[] = [
   },
 ];
 
+/** Photo spotlight shown under the awards list for the headline result. */
+export const awardSpotlight = {
+  label: "Spotlight",
+  title: "Samsung Solve for Tomorrow 2026",
+  result: "Top 5 Finalist · AI Living for India",
+  detail: "Grand finale · ₹1,00,000 award · Visited Samsung R&D Institute India, Noida",
+  photos: {
+    finale: "On stage at the Samsung Solve for Tomorrow 2026 grand finale, receiving the Top 5 finalist award",
+    noida: "The team at Samsung R&D Institute India, Noida",
+  },
+} as const;
+
 export const publication = {
   title: "Sentinel AI: Cyber Bully Detection and Prevention",
   venue: "Journal of Research in Artificial Neural Network Systems (JRANNS)",
