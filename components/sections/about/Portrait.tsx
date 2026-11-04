@@ -11,8 +11,7 @@ import { cn } from "@/lib/cn";
 /**
  * The portrait wipes up out of a clip-path the first time it is seen, the
  * photo settling from a slight zoom, then drifts gently against the scroll.
- * The photo's white studio backdrop is multiplied onto warm paper so it sits
- * in the page instead of on it.
+ * The photo is pre-cropped to the frame's 4:5 so nothing important is cut.
  */
 export default function Portrait({ className }: { className?: string }) {
   const root = useRef<HTMLElement>(null);
@@ -49,7 +48,7 @@ export default function Portrait({ className }: { className?: string }) {
               alt={about.portrait.alt}
               placeholder="blur"
               sizes="(min-width: 1024px) 36vw, (min-width: 640px) 24rem, 78vw"
-              className="h-full w-full object-cover mix-blend-multiply transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.03]"
+              className="h-full w-full object-cover transition-transform duration-[1.6s] ease-out-expo group-hover:scale-[1.03]"
             />
           </div>
         </Parallax>
