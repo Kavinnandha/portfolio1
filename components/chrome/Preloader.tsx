@@ -224,7 +224,7 @@ export default function Preloader() {
 
           <div className="mt-auto flex items-end justify-between gap-6">
             <Line delay={0.22} className="label pb-[0.35rem] text-paper-dim">
-              {profile.location}
+              {profile.relocation}
             </Line>
             <Line
               delay={0.12}

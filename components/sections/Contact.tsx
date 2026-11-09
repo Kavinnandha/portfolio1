@@ -24,7 +24,7 @@ export default function Contact() {
       .map((s) => ({ label: s.label, value: s.handle, href: s.href, external: true })),
     { label: PHONE_LABEL, value: profile.phone, href: profile.phoneHref },
   ];
-  const badgeText = `${[profile.role, profile.location, profile.relocation].join(" · ")} · `;
+  const badgeText = `${[profile.role, profile.relocation].join(" · ")} · `;
 
   return (
     <ContactFrame>

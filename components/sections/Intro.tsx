@@ -17,7 +17,7 @@ export default function Intro() {
               {intro.label}
             </h2>
             <p className="mt-3 text-[0.8125rem] leading-snug text-muted">
-              {profile.location} · {profile.relocation}
+              {profile.relocation}
             </p>
           </Reveal>
         </div>

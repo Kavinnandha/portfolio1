@@ -55,7 +55,7 @@ export default function Portrait({ className }: { className?: string }) {
       </div>
       <figcaption data-caption className="label mt-4 flex items-center justify-between gap-4 text-muted">
         <span>{profile.name}</span>
-        <span>{profile.location}</span>
+        <span>{profile.role}</span>
       </figcaption>
     </figure>
   );

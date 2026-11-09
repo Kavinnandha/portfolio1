@@ -31,7 +31,7 @@ const instrumentSerif = Instrument_Serif({
 
 const title = `${profile.name} — ${profile.role}`;
 const description =
-  "Software engineer building backend systems, APIs and full-stack products with Node.js, TypeScript, React, MongoDB, PostgreSQL and Redis — shipped to production with Docker and CI/CD. Based in Coimbatore, India.";
+  "Software engineer building backend systems, APIs and full-stack products with Node.js, TypeScript, React, MongoDB, PostgreSQL and Redis — shipped to production with Docker and CI/CD.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.site),
@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     "MongoDB",
     "PostgreSQL",
     "Redis",
-    "Coimbatore",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -84,7 +83,6 @@ const jsonLd = {
   url: profile.site,
   email: `mailto:${profile.email}`,
   image: `${profile.site}${about.portrait.src}`,
-  address: { "@type": "PostalAddress", addressLocality: "Coimbatore", addressCountry: "IN" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "Sri Shakthi Institute of Engineering and Technology" },
   sameAs: socials.filter((s) => s.href.startsWith("http")).map((s) => s.href),
   knowsAbout: skillGroups.flatMap((g) => g.items).slice(0, 24),

@@ -26,7 +26,7 @@ projects (including the architecture diagrams, as nodes and edges), experience,
 skills, awards and contact details. In strings, `*asterisks*` render as
 serif-italic emphasis.
 
-- Résumé download: replace `public/Kavin_Nandha_MK_Resume_SDE.pdf` (keep the name, or update `profile.resume` in `lib/content.ts`).
+- Résumé download: replace `public/Kavin_Nandha_MK_Resume_SoftwareEngineer.pdf` (keep the name, or update `profile.resume` in `lib/content.ts`).
 - Portrait: `public/portrait.webp`.
 - Design tokens (colours, type scale, spacing): `app/globals.css` → `@theme`.
 

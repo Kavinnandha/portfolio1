@@ -77,8 +77,6 @@ export default function Footer() {
             <p className="label mb-5 text-paper-dim">{chromeCopy.localTime}</p>
             <FooterClock />
             <p className="mt-3 text-[0.95rem] leading-relaxed text-paper-dim">
-              {profile.location}
-              <br />
               {profile.relocation}
             </p>
           </div>

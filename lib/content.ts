@@ -14,7 +14,6 @@ export const profile = {
   role: "Software Engineer",
   tagline:
     "I build backend systems, APIs and full-stack products — and ship them all the way to production.",
-  location: "Coimbatore, India",
   relocation: "Open to relocation",
   timezone: "Asia/Kolkata",
   timezoneLabel: "IST",
@@ -23,8 +22,8 @@ export const profile = {
   phoneHref: "tel:+919345569707",
   site: "https://kavin.codegarage.dev",
   resume: {
-    href: "/Kavin_Nandha_MK_Resume_SDE.pdf",
-    fileName: "Kavin_Nandha_MK_Resume_SDE.pdf",
+    href: "/Kavin_Nandha_MK_Resume_SoftwareEngineer.pdf",
+    fileName: "Kavin_Nandha_MK_Resume_SoftwareEngineer.pdf",
     label: "Résumé",
   },
   /** One-paragraph summary, straight from the résumé. */
@@ -56,7 +55,7 @@ export const sections = {
   work: {
     index: "01",
     label: "Selected work",
-    meta: "Five builds · backend, platform, AI",
+    meta: "Six builds · backend, platform, AI",
     title: "Systems I've *designed*, built and shipped.",
   },
   more: {
@@ -83,7 +82,7 @@ export const sections = {
     meta: "Awards · publication · certifications",
     title: "Built under pressure, *judged* by others.",
   },
-  about: { index: "06", label: "About", meta: "Coimbatore, India" },
+  about: { index: "06", label: "About", meta: "B.E. CSE · 2023 — 2027" },
   contact: { index: "07", label: "Contact", meta: "Replies within a day" },
 } as const;
 
@@ -91,7 +90,7 @@ export const sections = {
 
 export const hero = {
   eyebrow: "Software Engineer",
-  place: "Coimbatore, India",
+  place: profile.relocation,
   edition: "Portfolio ©2026",
   scrollCue: "Scroll",
   /** Rendered huge, one line each. */
@@ -128,10 +127,10 @@ export type Stat = {
 
 export const stats: Stat[] = [
   {
-    value: 2500,
-    suffix: "+",
-    label: "Concurrent users",
-    note: "Sustained at peak on a bare-metal k3s platform I deployed",
+    value: 5,
+    prefix: "Top ",
+    label: "Samsung Solve for Tomorrow",
+    note: "National finalist in AI Living for India, 2026 — with MicroLearning",
   },
   {
     value: 6,
@@ -197,8 +196,47 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "hr-connect",
+    slug: "microlearning",
     index: "01",
+    title: "MicroLearning",
+    kicker: "WhatsApp shop-floor training platform",
+    year: "2026",
+    summary:
+      "A multi-tenant platform that turns factory SOPs into short WhatsApp video lessons in 15 Indian languages, graded by AI from workers' voice notes.",
+    description:
+      "Shop-floor workers already live in WhatsApp, so the training goes there. I built the FastAPI backend that writes lessons from SOPs with an LLM, delivers them over WhatsApp Cloud API webhooks, grades spoken answers from voice notes and schedules reviews with FSRS. It took us to the Top 5 of Samsung Solve for Tomorrow 2026.",
+    highlights: [
+      "FastAPI backend turning factory SOPs into short video lessons in 15 Indian languages",
+      "WhatsApp Cloud API webhooks with LLM lesson writing, AI voice-note grading and FSRS reviews",
+      "Multi-tenant: every query scoped to the caller's company and plant, RBAC for 3 staff roles",
+      "Docker Compose and GitHub Actions CI/CD (214 backend tests) behind a Cloudflare Tunnel",
+    ],
+    stack: ["Python", "FastAPI", "MongoDB", "Next.js", "WhatsApp Cloud API", "LLMs", "Docker"],
+    award: "Top 5 Finalist — Samsung Solve for Tomorrow 2026, AI Living for India",
+    metric: { value: "15", label: "Indian languages" },
+    links: {},
+    featured: true,
+    architecture: {
+      nodes: [
+        { id: "workers", label: "Shop-floor workers", sub: "WhatsApp", x: 8, y: 14, kind: "client" },
+        { id: "wa", label: "WhatsApp Cloud API", sub: "webhooks", x: 30, y: 14, kind: "external" },
+        { id: "dash", label: "Next.js dashboard", sub: "3 staff roles", x: 30, y: 47, kind: "client" },
+        { id: "api", label: "FastAPI", sub: "multi-tenant · RBAC", x: 54, y: 30, kind: "service" },
+        { id: "llm", label: "LLM · voice grading", sub: "lessons · scores", x: 82, y: 12, kind: "ai" },
+        { id: "mongo", label: "MongoDB", sub: "scoped by company · plant", x: 82, y: 48, kind: "data" },
+      ],
+      edges: [
+        { from: "workers", to: "wa" },
+        { from: "wa", to: "api", label: "webhook" },
+        { from: "dash", to: "api" },
+        { from: "api", to: "llm", label: "write · grade" },
+        { from: "api", to: "mongo", label: "tenant-scoped" },
+      ],
+    },
+  },
+  {
+    slug: "hr-connect",
+    index: "02",
     title: "HR Connect",
     kicker: "Full-stack placement platform",
     summary:
@@ -233,7 +271,7 @@ export const projects: Project[] = [
   },
   {
     slug: "email-job-scheduler",
-    index: "02",
+    index: "03",
     title: "Email Job Scheduler",
     kicker: "Distributed job scheduling",
     year: "2026",
@@ -274,7 +312,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sentinel-ai",
-    index: "03",
+    index: "04",
     title: "Sentinel AI",
     kicker: "ML-integrated moderation backend",
     year: "2025",
@@ -312,7 +350,7 @@ export const projects: Project[] = [
   },
   {
     slug: "moodle-k3s",
-    index: "04",
+    index: "05",
     title: "Moodle LMS on bare-metal k3s",
     kicker: "Production platform at scale",
     summary:
@@ -350,7 +388,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ground-score",
-    index: "05",
+    index: "06",
     title: "ground-score",
     kicker: "AI agent + evaluation harness",
     year: "2026",
@@ -391,7 +429,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-interview-meet",
-    index: "06",
+    index: "07",
     title: "AI Interview Meet",
     kicker: "Real-time video + AI agent",
     year: "2025",
@@ -423,7 +461,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ncert-doubt-solver",
-    index: "07",
+    index: "08",
     title: "Multilingual NCERT Doubt-Solver",
     kicker: "RAG · Intel Unnati Industrial Training",
     year: "2025",
@@ -457,7 +495,7 @@ export const projects: Project[] = [
   },
   {
     slug: "health-app",
-    index: "08",
+    index: "09",
     title: "Health App",
     kicker: "Mobile app + REST backend",
     summary:
@@ -635,7 +673,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Backend",
     note: "My strongest layer",
-    items: ["Node.js", "Express.js", "REST API design", "JWT / RBAC", "Middleware & validation", "BullMQ"],
+    items: ["Node.js", "Express.js", "FastAPI", "REST API design", "JWT / RBAC", "Middleware & validation", "BullMQ"],
   },
   {
     title: "Data",
@@ -731,7 +769,7 @@ export const certifications: Certification[] = [
 ];
 
 export const certificatesFolder =
-  "https://drive.google.com/drive/folders/1viOF_DzchI7ywIm3wC9opLuKJWxzGv4K?usp=sharing";
+  "https://drive.google.com/drive/folders/1LxJ57Xye420axeNnlkJy1O5LkC5YRG9I?usp=sharing";
 
 /** Interface strings used by the Recognition section. */
 export const recognitionUi = {
@@ -747,7 +785,7 @@ export const about = {
   label: "About",
   title: "Engineer by *building*, not just by studying.",
   paragraphs: [
-    "I'm a final-year Computer Science and Engineering (Cyber Security) student at Sri Shakthi Institute of Engineering and Technology, Coimbatore. Most of what I know came from building, deploying, breaking and fixing real systems.",
+    "I'm a final-year Computer Science and Engineering (Cyber Security) student at Sri Shakthi Institute of Engineering and Technology. Most of what I know came from building, deploying, breaking and fixing real systems.",
     "I like owning a feature across every boundary: design the API, model the data, implement authentication, containerize it, deploy it, and then debug it when a user says something is wrong. A security background means I design access control in from the start instead of bolting it on.",
     "I'm looking for a software engineering role where I can own work end to end and keep learning what happens underneath the abstraction.",
   ],
@@ -756,13 +794,13 @@ export const about = {
   education: [
     {
       degree: "B.E. Computer Science and Engineering (Cyber Security)",
-      school: "Sri Shakthi Institute of Engineering and Technology, Coimbatore",
+      school: "Sri Shakthi Institute of Engineering and Technology",
       period: "2023 — 2027",
       score: "CGPA 8.67 / 10",
     },
     {
       degree: "Higher Secondary Certificate (HSC)",
-      school: "VVM Matric Hr. Sec. School, Coimbatore",
+      school: "VVM Matric Hr. Sec. School",
       period: "2023",
       score: "83.4%",
     },
@@ -775,7 +813,7 @@ export const contact = {
   label: "Contact",
   /** Rendered as huge lines; *asterisks* = serif-italic emphasis. */
   titleLines: ["Let's build", "something that", "*holds up.*"],
-  body: "Open to software engineering opportunities. Based in Coimbatore, India — open to relocation. The fastest way to reach me is email.",
+  body: "Open to software engineering opportunities and open to relocation. The fastest way to reach me is email.",
   ui: {
     phone: "Phone",
     copy: "Copy",

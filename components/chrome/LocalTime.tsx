@@ -12,8 +12,6 @@ import {
   subscribeClock,
 } from "./clock";
 
-const city = profile.location.split(",")[0];
-
 /** Live local time: "14:32" or, with seconds, "14:32:05". A stable placeholder on the server. */
 export function useLocalTime(withSeconds = false): string {
   return useSyncExternalStore(
@@ -32,13 +30,12 @@ function LiveDot() {
   );
 }
 
-/** "● Coimbatore 14:32 IST" — used in the nav and the mobile menu. */
+/** "● 14:32 IST" — used in the nav and the mobile menu. */
 export function NavClock({ className }: { className?: string }) {
   const time = useLocalTime(false);
   return (
     <p className={cn("label flex items-center gap-2 whitespace-nowrap", className)}>
       <LiveDot />
-      <span>{city}</span>
       <time className="tabular-nums" dateTime={isPlaceholder(time) ? undefined : time}>
         {time}
       </time>
