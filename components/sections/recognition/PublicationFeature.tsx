@@ -1,4 +1,4 @@
-import { publication } from "@/lib/content";
+import { otherPublications, publication } from "@/lib/content";
 import { PillLink } from "@/components/ui/Button";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import SubHeading from "./SubHeading";
@@ -50,6 +50,17 @@ export default function PublicationFeature({ number }: { number: string }) {
             />
           </div>
         </div>
+
+        <ul data-pub-foot className="mt-14 border-t border-line pt-8 md:mt-20">
+          {otherPublications.map((p) => (
+            <li key={p.title} className="border-b border-line py-5">
+              <p className="max-w-[60ch] font-serif text-[length:clamp(1.25rem,2vw,1.75rem)] leading-tight text-ink italic">
+                {p.title}
+              </p>
+              <p className="mt-2 font-mono text-[0.8125rem] leading-relaxed text-muted">{p.venue}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );

@@ -20,7 +20,7 @@ export const profile = {
   email: "kavinnandhakavin@gmail.com",
   phone: "+91 93455 69707",
   phoneHref: "tel:+919345569707",
-  site: "https://kavin.codegarage.dev",
+  site: "https://portfolio.codegarage.dev",
   resume: {
     href: "/Kavin_Nandha_MK_Resume_SoftwareEngineer.pdf",
     fileName: "Kavin_Nandha_MK_Resume_SoftwareEngineer.pdf",
@@ -55,12 +55,12 @@ export const sections = {
   work: {
     index: "01",
     label: "Selected work",
-    meta: "Six builds · backend, platform, AI",
+    meta: "Seven builds · backend, platform, AI",
     title: "Systems I've *designed*, built and shipped.",
   },
   more: {
     label: "More projects",
-    meta: "Three more builds",
+    meta: "Four more builds",
     title: "Smaller builds, *same* habits.",
   },
   approach: { index: "02", label: "How I build", meta: "One request, eight layers" },
@@ -79,7 +79,7 @@ export const sections = {
   recognition: {
     index: "05",
     label: "Recognition",
-    meta: "Awards · publication · certifications",
+    meta: "Awards · publications · certifications",
     title: "Built under pressure, *judged* by others.",
   },
   about: { index: "06", label: "About", meta: "B.E. CSE · 2023 — 2027" },
@@ -130,7 +130,7 @@ export const stats: Stat[] = [
     value: 5,
     prefix: "Top ",
     label: "Samsung Solve for Tomorrow",
-    note: "National finalist in AI Living for India, 2026 — with MicroLearning",
+    note: "Top 5 in AI Living, one of 20 national finalists, 2026 — with MicroLearning",
   },
   {
     value: 6,
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "Docker Compose and GitHub Actions CI/CD (214 backend tests) behind a Cloudflare Tunnel",
     ],
     stack: ["Python", "FastAPI", "MongoDB", "Next.js", "WhatsApp Cloud API", "LLMs", "Docker"],
-    award: "Top 5 Finalist — Samsung Solve for Tomorrow 2026, AI Living for India",
+    award: "Top 5, AI Living category — Samsung Solve for Tomorrow 2026 · one of 20 national finalists",
     metric: { value: "15", label: "Indian languages" },
     links: {},
     featured: true,
@@ -270,8 +270,46 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "email-job-scheduler",
+    slug: "cellular-maze",
     index: "03",
+    title: "Cellular Maze",
+    kicker: "ML-powered network-aware routing",
+    year: "2026",
+    summary:
+      "A navigation platform that picks routes by predicted cellular signal quality, not just ETA and distance, so calls, rides and SOS messages don't drop in dead zones.",
+    description:
+      "Routing engines optimize for travel time and ignore coverage. Cellular Maze samples every alternative route every 500 m, predicts signal strength, call-drop probability and handoff risk at each point with a multi-task PyTorch model, and scores each route per carrier. A preference slider trades speed for signal, and Thompson Sampling learns each user's choice over time.",
+    highlights: [
+      "Up to seven road-snapped TomTom alternatives per trip, sampled every 500 m",
+      "ResidualSignalNet: multi-task PyTorch model (~560K parameters) for signal, call drops and handoffs",
+      "Cross-checked against COST-231 Hata and Ericsson 9999 propagation models, uncertainty via MC Dropout",
+      "Published in IJRTI (Vol. 11 Issue 10, October 2026)",
+    ],
+    stack: ["Python", "FastAPI", "PyTorch", "Next.js", "Mapbox GL JS", "TomTom", "OpenCelliD"],
+    metric: { value: "500 m", label: "signal predicted along every route" },
+    links: {},
+    featured: true,
+    architecture: {
+      nodes: [
+        { id: "ui", label: "Next.js · Mapbox", sub: "routes · heatmaps", x: 8, y: 30, kind: "client" },
+        { id: "api", label: "FastAPI", sub: "route scoring", x: 32, y: 30, kind: "service" },
+        { id: "tomtom", label: "TomTom", sub: "routes · traffic", x: 58, y: 9, kind: "external" },
+        { id: "cells", label: "OpenCelliD · weather", sub: "towers · conditions", x: 58, y: 51, kind: "data" },
+        { id: "model", label: "ResidualSignalNet", sub: "PyTorch · multi-task", x: 85, y: 15, kind: "ai" },
+        { id: "prefs", label: "Thompson Sampling", sub: "learns preference", x: 85, y: 46, kind: "ai" },
+      ],
+      edges: [
+        { from: "ui", to: "api", label: "trip" },
+        { from: "api", to: "tomtom", label: "≤7 routes" },
+        { from: "api", to: "cells" },
+        { from: "api", to: "model", label: "every 500 m" },
+        { from: "api", to: "prefs", label: "rank", dashed: true },
+      ],
+    },
+  },
+  {
+    slug: "email-job-scheduler",
+    index: "04",
     title: "Email Job Scheduler",
     kicker: "Distributed job scheduling",
     year: "2026",
@@ -312,7 +350,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sentinel-ai",
-    index: "04",
+    index: "05",
     title: "Sentinel AI",
     kicker: "ML-integrated moderation backend",
     year: "2025",
@@ -325,6 +363,7 @@ export const projects: Project[] = [
       "Moderation workflow: flag, escalate and report harmful content",
       "MongoDB schemas, RBAC and audit logging around every moderation action",
       "Co-authored the research paper, published in JRANNS (April 2026)",
+      "Extended into a reinforcement-learning content-triage agent — published, first author",
     ],
     stack: ["Node.js", "Express", "MongoDB", "ML integration", "RBAC"],
     award: "Winner — SRCAS 2.0 Hackathon, 350+ participants",
@@ -350,18 +389,19 @@ export const projects: Project[] = [
   },
   {
     slug: "moodle-k3s",
-    index: "05",
+    index: "06",
     title: "Moodle LMS on bare-metal k3s",
     kicker: "Production platform at scale",
     summary:
-      "An institution-wide Moodle LMS with CodeRunner/Jobe code grading on a bare-metal k3s cluster that sustained 2,500+ concurrent users at peak.",
+      "The college Moodle LMS used to crash at about 400 users; moved to a bare-metal k3s cluster, it sustained 2,500+ concurrent users at peak.",
     description:
-      "An entire institution's coursework, quizzes and automated code grading, running on hardware in the building rather than a managed cloud. I split the web tier and the grading workloads into isolated services, and wired in monitoring before go-live so resource decisions came from real metrics.",
+      "On one server, every compile and heavy job ran in series, so Moodle fell over at about 400 users. Full Kubernetes was overkill for one app, so I chose k3s: one server node plus worker nodes, CodeRunner/Jobe grading moved to separate machines, and MySQL tuned for the load. Monitoring went in before go-live.",
     highlights: [
-      "Deployments, Secrets and PersistentVolumeClaims on dual Intel Xeon Gold 6430",
-      "CodeRunner/Jobe grading isolated from the web tier serving the pages",
+      "k3s server node on dual Intel Xeon Gold 6430, with worker nodes alongside",
+      "CodeRunner/Jobe grading on separate machines, running in parallel instead of in series",
+      "Fixed MySQL \"Too many connections\" at peak by raising connection limits and tuning the InnoDB buffer pool",
       "Prometheus, Grafana, cAdvisor and Node Exporter in place before the first class",
-      "Diagnosed networking, storage and resource contention from metrics and k8s logs",
+      "Compressed, incremental database backups (about 70% smaller) on a 40TB Synology NAS",
     ],
     stack: ["Kubernetes (k3s)", "Docker", "MySQL", "Prometheus", "Grafana", "Linux"],
     metric: { value: "2,500+", label: "concurrent users at peak" },
@@ -372,8 +412,8 @@ export const projects: Project[] = [
         { id: "users", label: "2,500+ users", sub: "students · staff", x: 7, y: 30, kind: "client" },
         { id: "ingress", label: "Ingress", sub: "routing · TLS", x: 27, y: 30, kind: "edge" },
         { id: "moodle", label: "Moodle", sub: "web tier pods", x: 50, y: 13, kind: "service" },
-        { id: "jobe", label: "CodeRunner · Jobe", sub: "isolated grading", x: 50, y: 47, kind: "service" },
-        { id: "mysql", label: "MySQL", sub: "PVC-backed", x: 77, y: 13, kind: "data" },
+        { id: "jobe", label: "CodeRunner · Jobe", sub: "separate worker machines", x: 50, y: 47, kind: "service" },
+        { id: "mysql", label: "MySQL", sub: "tuned for peak load", x: 77, y: 13, kind: "data" },
         { id: "obs", label: "Prometheus · Grafana", sub: "metrics first", x: 77, y: 47, kind: "infra" },
       ],
       edges: [
@@ -388,7 +428,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ground-score",
-    index: "06",
+    index: "07",
     title: "ground-score",
     kicker: "AI agent + evaluation harness",
     year: "2026",
@@ -429,7 +469,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-interview-meet",
-    index: "07",
+    index: "08",
     title: "AI Interview Meet",
     kicker: "Real-time video + AI agent",
     year: "2025",
@@ -461,7 +501,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ncert-doubt-solver",
-    index: "08",
+    index: "09",
     title: "Multilingual NCERT Doubt-Solver",
     kicker: "RAG · Intel Unnati Industrial Training",
     year: "2025",
@@ -495,7 +535,7 @@ export const projects: Project[] = [
   },
   {
     slug: "health-app",
-    index: "09",
+    index: "10",
     title: "Health App",
     kicker: "Mobile app + REST backend",
     summary:
@@ -519,6 +559,38 @@ export const projects: Project[] = [
       edges: [
         { from: "app", to: "api", label: "REST" },
         { from: "api", to: "db", label: "per-user" },
+      ],
+    },
+  },
+  {
+    slug: "event-platform",
+    index: "11",
+    title: "College Tech-Event Platform",
+    kicker: "Live registrations + payments",
+    summary:
+      "The event-management application for the college's tech events, run end to end: 1,000+ concurrent users and PhonePe payments for registrations.",
+    description:
+      "I ran the whole technical side of the college's tech events: the event-management application, registrations and the PhonePe payment gateway, built with payment security in mind and kept up under real users on a fixed launch date.",
+    highlights: [
+      "Handled 1,000+ concurrent users during registrations",
+      "Integrated the PhonePe payment gateway for event registrations",
+      "Owned the deploy and kept it running through fixed-date launches",
+    ],
+    stack: ["PhonePe payment gateway", "REST APIs"],
+    metric: { value: "1,000+", label: "concurrent users" },
+    links: {},
+    featured: false,
+    architecture: {
+      nodes: [
+        { id: "users", label: "Participants", sub: "1,000+ concurrent", x: 10, y: 30, kind: "client" },
+        { id: "app", label: "Event app", sub: "registrations", x: 46, y: 30, kind: "service" },
+        { id: "pay", label: "PhonePe", sub: "payment gateway", x: 84, y: 14, kind: "external" },
+        { id: "db", label: "Database", sub: "registrations", x: 84, y: 47, kind: "data" },
+      ],
+      edges: [
+        { from: "users", to: "app" },
+        { from: "app", to: "pay", label: "pay" },
+        { from: "app", to: "db" },
       ],
     },
   },
@@ -644,6 +716,23 @@ export const experience: Role[] = [
     stack: ["Node.js", "Express", "MongoDB", "JWT", "Docker", "GitHub Actions", "Nginx"],
   },
   {
+    company: "Sri Shakthi Institute of Engineering and Technology",
+    title: "Infrastructure & IT Operations",
+    period: "Jan 2025 — Jun 2026",
+    start: "2025-01",
+    end: "2026-06",
+    kind: "Alongside studies · ~18 months",
+    summary:
+      "Ran the college's entire firewall and network, and the servers behind its Moodle platform, while studying.",
+    points: [
+      "Administered Sophos firewalls, Fortinet FortiGate 60F for the cyber security labs, and MikroTik and Ubiquiti routers and access points.",
+      "Moved the Moodle LMS from a single server that crashed at about 400 users to a k3s cluster that held 2,500+ concurrent users at peak.",
+      "Rebuilt database backups: compressed (about 70% smaller), incremental, and stored on a dedicated 40TB Synology NAS.",
+      "Worked on the infrastructure of three institutions: managed one end to end, supported two.",
+    ],
+    stack: ["Linux", "k3s", "MySQL", "Sophos", "FortiGate", "Prometheus", "Grafana"],
+  },
+  {
     company: "Intel Unnati Industrial Training",
     title: "Industrial Trainee",
     period: "Oct — Dec 2025",
@@ -715,8 +804,8 @@ export type Award = { title: string; result: string; detail: string; year: strin
 export const awards: Award[] = [
   {
     title: "Samsung Solve for Tomorrow",
-    result: "Top 5 Finalist · AI Living for India",
-    detail: "National innovation programme",
+    result: "Top 5 · AI Living category",
+    detail: "One of 20 national finalists",
     year: "2026",
     highlight: true,
   },
@@ -739,7 +828,7 @@ export const awards: Award[] = [
 export const awardSpotlight = {
   label: "Spotlight",
   title: "Samsung Solve for Tomorrow 2026",
-  result: "Top 5 Finalist · AI Living for India",
+  result: "Top 5 · AI Living category",
   detail: "Grand finale · ₹1,00,000 award · Visited Samsung R&D Institute India, Noida",
   photos: {
     finale: "On stage at the Samsung Solve for Tomorrow 2026 grand finale, receiving the Top 5 finalist award",
@@ -754,6 +843,25 @@ export const publication = {
   href: "http://hbrppublication.com/OJS/index.php/JRANNS/article/view/9606",
 } as const;
 
+/** The other published papers, listed under the featured one. */
+export const otherPublications: { title: string; venue: string }[] = [
+  {
+    title:
+      "Cellular Maze: A Cellular Network-Aware Routing System Using Machine Learning-Based Signal Quality Prediction",
+    venue: "IJRTI · Vol. 11 Issue 10 · October 2026 · Co-author",
+  },
+  {
+    title: "Reinforcement Learning-Based Content Triage Agent for Intelligent Social Media Moderation",
+    venue: "First author",
+  },
+  {
+    title:
+      "Automated CIS Benchmark Auditing and Remediation Tool: A Windows System Security Assessment Solution",
+    venue: "IEEE · Co-author",
+  },
+  { title: "Smart Health Monitoring and Recommendation System", venue: "IRJMETS · Co-author" },
+];
+
 export type Certification = { title: string; issuer: string; year: string; href?: string };
 
 export const certifications: Certification[] = [
@@ -764,6 +872,7 @@ export const certifications: Certification[] = [
     href: "https://verify.skilljar.com/c/jthoxb9dq4s9",
   },
   { title: "AWS Cloud Practitioner Essentials", issuer: "AWS Skill Builder", year: "2026" },
+  { title: "Demystifying Networking", issuer: "NPTEL", year: "2026" },
   { title: "Aspire Leaders Program", issuer: "Aspire Institute", year: "2026" },
   { title: "Intel Unnati Industrial Training", issuer: "Intel", year: "2025" },
 ];
@@ -786,6 +895,7 @@ export const about = {
   title: "Engineer by *building*, not just by studying.",
   paragraphs: [
     "I'm a final-year Computer Science and Engineering (Cyber Security) student at Sri Shakthi Institute of Engineering and Technology. Most of what I know came from building, deploying, breaking and fixing real systems.",
+    "For about 16 months I also ran my college's firewall and network (Sophos, FortiGate, MikroTik, Ubiquiti) and the servers behind its Moodle platform, so I know what happens below the API too.",
     "I like owning a feature across every boundary: design the API, model the data, implement authentication, containerize it, deploy it, and then debug it when a user says something is wrong. A security background means I design access control in from the start instead of bolting it on.",
     "I'm looking for a software engineering role where I can own work end to end and keep learning what happens underneath the abstraction.",
   ],

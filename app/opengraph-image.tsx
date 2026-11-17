@@ -57,7 +57,7 @@ export default function OpengraphImage() {
           <span style={{ maxWidth: 760, lineHeight: 1.3, color: "#3a3936" }}>
             Backend systems, APIs and full-stack products — shipped to production.
           </span>
-          <span style={{ color: accent, fontSize: 24 }}>kavin.codegarage.dev</span>
+          <span style={{ color: accent, fontSize: 24 }}>portfolio.codegarage.dev</span>
         </div>
       </div>
     ),

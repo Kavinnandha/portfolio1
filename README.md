@@ -53,5 +53,5 @@ the custom cursor only appears on mouse/trackpad devices.
 
 ## Deploy
 
-Built for Vercel (`kavin.codegarage.dev`). The production build is fully
+Built for Vercel (`portfolio.codegarage.dev`). The production build is fully
 static, so any static host that runs `next build` works too.
